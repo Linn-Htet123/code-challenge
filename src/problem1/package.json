@@ -1,0 +1,12 @@
+{
+  "name": "problem1-sum-to-n",
+  "version": "1.0.0",
+  "description": "Three unique implementations to sum to n",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
