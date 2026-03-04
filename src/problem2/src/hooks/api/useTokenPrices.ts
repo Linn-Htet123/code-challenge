@@ -1,10 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchTokenPrices } from "../services/api/pricesApi";
-import type { TokenPrice } from "../types";
+import { fetchTokenPrices } from "../../services/api/pricesApi";
+import type { TokenPrice } from "../../types";
 
 const PRICES_QUERY_KEY = ["tokenPrices"] as const;
 
-// Only keep the latest price per currency (API returns duplicates)
 const dedupeByLatest = (prices: TokenPrice[]): TokenPrice[] => {
     const map = new Map<string, TokenPrice>();
     for (const item of prices) {

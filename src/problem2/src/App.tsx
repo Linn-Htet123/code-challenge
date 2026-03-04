@@ -1,12 +1,16 @@
 import { ThemeToggle } from "./components/ui/theme-toggle";
+import { SwapForm } from "./components/swap/SwapForm";
 
 export default function App() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300">
-      <div className="absolute top-4 right-4">
+    <div className="relative min-h-screen bg-gray-50 text-black dark:bg-[#06060f] dark:text-white transition-colors duration-300 flex flex-col font-sans overflow-hidden">
+      <header className="w-full flex justify-end items-center p-6 relative z-50">
         <ThemeToggle />
-      </div>
-      <h1 className="text-4xl font-bold">App</h1>
+      </header>
+
+      <main className="flex-grow flex items-center justify-center p-4 relative z-10">
+        <SwapForm />
+      </main>
     </div>
   );
 }

@@ -2,7 +2,6 @@ import axios from "axios";
 import { API_TIMEOUT_MS } from "../../config/constants";
 import env from "../../config/env";
 
-// Derive root base URL from the full prices URL (e.g. https://interview.switcheo.com)
 const baseURL = new URL(env.PRICES_API_URL).origin;
 
 const axiosInstance = axios.create({

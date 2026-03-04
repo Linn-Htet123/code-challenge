@@ -50,5 +50,3 @@ export function ThemeProvider({
     </ThemeProviderContext.Provider>
   );
 }
-
-// Hook has been moved to hooks/use-theme.ts

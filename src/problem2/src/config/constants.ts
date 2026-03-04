@@ -1,4 +1,4 @@
-export const SWAP_SUBMIT_DELAY_MS = 2000; // mock backend delay in ms
+export const SWAP_SUBMIT_DELAY_MS = 2000;
 
 export const API_TIMEOUT_MS = 10000; // 10 seconds
 

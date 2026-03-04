@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { submitSwap } from "../services/api/swapApi";
-import type { SwapRequest, SwapResponse } from "../types";
+import { submitSwap } from "../../services/api/swapApi";
+import type { SwapRequest, SwapResponse } from "../../types";
 
 export const useSwap = () => {
     const [txResult, setTxResult] = useState<SwapResponse | null>(null);
