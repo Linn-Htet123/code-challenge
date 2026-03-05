@@ -8,7 +8,7 @@ export default function App() {
         <ThemeToggle />
       </header>
 
-      <main className="flex-grow flex items-center justify-center p-4 relative z-10">
+      <main className="grow flex items-center justify-center p-4 relative z-10">
         <SwapForm />
       </main>
     </div>

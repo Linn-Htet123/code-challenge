@@ -6,6 +6,7 @@ import { CurrencyInput } from "./CurrencyInput";
 import { TokenSelectDropdown } from "./TokenSelectDropdown";
 import { SwapDirectionButton } from "./SwapDirectionButton";
 import { SwapRateInfo } from "./SwapRateInfo";
+import { SwapSuccessMessage } from "./SwapSuccessMessage";
 
 export function SwapForm() {
   const {
@@ -32,48 +33,13 @@ export function SwapForm() {
   }
 
   if (txResult) {
-    return (
-      <div className="w-full max-w-md p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl animate-fade-up text-center space-y-6">
-        <div className="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg
-            className="w-10 h-10 text-green-500"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        </div>
-        <h2 className="text-2xl font-bold text-white">Swap Successful!</h2>
-        <p className="">
-          Successfully swapped {txResult.fromAmount} {txResult.fromToken} for{" "}
-          {txResult.toAmount} {txResult.toToken}.
-        </p>
-        <button
-          onClick={resetSwap}
-          className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold transition-all mt-4 cursor-pointer"
-        >
-          Swap Again
-        </button>
-      </div>
-    );
+    return <SwapSuccessMessage txResult={txResult} resetSwap={resetSwap} />;
   }
 
   return (
-    <div className="w-full max-w-md bg-white/5 dark:bg-[#0e0e1a]/80 backdrop-blur-2xl border border-white/20 dark:border-white/10 rounded-[2rem] p-4 shadow-2xl relative overflow-hidden animate-fade-up">
+    <div className="w-full max-w-md bg-white/5 dark:bg-bg-modal/80 backdrop-blur-2xl border border-white/20 dark:border-white/10 rounded-[2rem] p-4 shadow-2xl relative overflow-hidden animate-fade-up">
       <div className="absolute top-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-fuchsia-500/10 rounded-full blur-3xl translate-y-1/2 translate-x-1/2 pointer-events-none" />
-
-      <div className="flex justify-between items-center px-2 mb-4 relative z-10">
-        <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-          Swap
-        </h2>
-      </div>
 
       <form onSubmit={handleSubmit} className="relative z-10 space-y-1">
         <div className="bg-gray-50/50 dark:bg-white/[0.03] hover:dark:bg-white/[0.05] border border-gray-100 dark:border-transparent rounded-2xl p-4 transition-colors">
