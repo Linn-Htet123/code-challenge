@@ -1,23 +1,56 @@
-# Task
+# Problem 2 - React Application
 
-Create a currency swap form based on the template provided in the folder. A user would use this form to swap assets from one currency to another.
+This is a React application built with Vite, TypeScript, and Tailwind CSS.
 
-_You may use any third party plugin, library, and/or framework for this problem._
+## Prerequisites
 
-1. You may add input validation/error messages to make the form interactive.
-2. Your submission will be rated on its usage intuitiveness and visual attractiveness.
-3. Show us your frontend development and design skills, feel free to totally disregard the provided files for this problem.
-4. You may use this [repo](https://github.com/Switcheo/token-icons/tree/main/tokens) for token images, e.g. [SVG image](https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/SWTH.svg).
-5. You may use this [URL](https://interview.switcheo.com/prices.json) for token price information and to compute exchange rates (not every token has a price, those that do not can be omitted).
+Before you begin, ensure you have the following installed:
 
-<aside>
-✨ Bonus: extra points if you use [Vite](https://vite.dev/) for this task!
+- [Node.js](https://nodejs.org/) (version 18 or higher recommended)
+- **npm** (comes with Node.js) or **yarn** or **pnpm**
 
-</aside>
+## Installation & Running the App
 
-Please submit your solution using the files provided in the skeletal repo, including any additional files your solution may use.
+1. **Navigate to the project directory** (if you haven't already):
 
-<aside>
-💡 Hint: feel free to simulate or mock interactions with a backend service, e.g. implement a loading indicator with a timeout delay for the submit button is good enough.
+   ```bash
+   cd src/problem2
+   ```
 
-</aside>
+2. **Install dependencies**:
+   Using npm:
+
+   ```bash
+   npm install
+   ```
+
+   _Or using yarn:_
+
+   ```bash
+   yarn install
+   ```
+
+   _Or using pnpm:_
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Run the development server**:
+   Using npm:
+
+   ```bash
+   npm run dev
+   ```
+
+   _Or using yarn:_
+
+   ```bash
+   yarn dev
+   ```
+
+   _Or using pnpm:_
+
+   ```bash
+   pnpm dev
+   ```
