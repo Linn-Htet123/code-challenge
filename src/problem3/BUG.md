@@ -38,7 +38,7 @@ Inside `sortedBalances` `useMemo`, in the `.filter()` callback
 })
 ```
 
-The filter is supposed to only show wallets that have money in them. But the condition `<= 0` does the opposite — it keeps the empty and negative ones, and throws away all the ones with actual value.
+The filter is supposed to only show wallets that have money in them. But the condition `<= 0` does the opposite. it just keeping the empty and negative ones.
 
 **Fix:** Change `<= 0` to `> 0`.
 
@@ -61,7 +61,7 @@ Inside `sortedBalances` `useMemo`, in the `.sort()` callback
 })
 ```
 
-JavaScript's sort function expects a return value of `-1`, `1`, or `0`. When two balances have the same priority, this function returns nothing (`undefined`). Different browsers deal with that differently, so the order of equal items becomes unpredictable.
+JavaScript's sort function expects a return value of `-1`, `1`, or `0`. When two balances have the same priority, this function returns nothing (`undefined`).
 
 **Fix:** Use subtraction instead: `return rightPriority - leftPriority`. This handles all three cases in one line.
 
@@ -80,7 +80,7 @@ const formattedBalances = sortedBalances.map((balance: WalletBalance) => {
   };
 });
 
-// ...but rows uses sortedBalances instead, not formattedBalances
+// but rows uses sortedBalances instead, not formattedBalances
 const rows = sortedBalances.map(
   (balance: FormattedWalletBalance, index: number) => {
     return (
@@ -132,7 +132,7 @@ const sortedBalances = useMemo(() => {
 }, [balances, prices]); //prices listed as a dependency
 ```
 
-`useMemo` will redo its work whenever something in the dependency array changes. `prices` is listed there, so every time prices update, the balances get re-filtered and re-sorted — even though the filter and sort have nothing to do with prices.
+`useMemo` will redo its work whenever something in the dependency array changes. `prices` is listed there, so every time prices update, the balances get re-filtered and re-sorted. Even though the filter and sort have nothing to do with prices it will keep re-rendering.
 
 **Fix:** Remove `prices` from the `sortedBalances` `useMemo` dependency array.
 
@@ -140,7 +140,7 @@ const sortedBalances = useMemo(() => {
 
 ### React Issue #7 — Using the Array Index as a Key
 
-Inside the `rows` variable, in the `<WalletRow>` JSX
+Inside the `rows` variable, in the `<WalletRow>`
 
 ```tsx
 const rows = sortedBalances.map(
@@ -154,7 +154,7 @@ const rows = sortedBalances.map(
 );
 ```
 
-React uses the `key` prop to keep track of which item in a list is which. When using the array index as the key and the list gets re-sorted or filtered, the indexes shift around. React gets confused about what changed and what didn't, which leads to wrong renders and UI glitches.
+React uses the `key` prop to keep track of which item in a list is which. When using the array index as the key and the list gets re-sorted or filtered, the indexes shift around. React gets confused about what changed and what didn't which leads to wrong renders.
 
 **Fix:** Replace `key={index}` with a stable value tied to the data, like ``key={`${balance.blockchain}-${balance.currency}`}``.
 
